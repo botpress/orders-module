@@ -1,0 +1,14 @@
+{
+  "types": {
+    "orderCard": {
+      "description": "A message that displays order information",
+      "item": "The item's name",
+      "qty": "The item quantity",
+      "orderId": "The order ID"
+    }
+  },
+  "skills": {
+    "createOrder": "Create Order"
+  },
+  "fullName": "Orders"
+}

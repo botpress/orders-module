@@ -1,0 +1,20 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "description": "Order status module",
+  "private": true,
+  "main": "dist/backend/index.js",
+  "author": "Botpress, Inc.",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "build": "node ../../build/module-builder/bin/entry build",
+    "watch": "node ../../build/module-builder/bin/entry watch",
+    "package": "node ../../build/module-builder/bin/entry package"
+  },
+  "webpack": {
+    "externals": {
+      "botpress/content-picker": "BotpressContentPicker"
+    }
+  },
+  "dependencies": {}
+}
