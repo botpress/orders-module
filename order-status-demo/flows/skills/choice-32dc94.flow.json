@@ -1,0 +1,103 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "3aciveiymt",
+    "contentId": "builtin_single-choice-PYDUM5",
+    "invalidContentId": "builtin_text-yYhm0T",
+    "keywords": {
+      "sign_in": [
+        "sign_in",
+        "Sign in to see my recent orders"
+      ],
+      "live_chat": [
+        "live_chat",
+        "Chat with Customer Service"
+      ],
+      "back": [
+        "back",
+        "Go back to the main menu"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 1,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-PYDUM5 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "388996"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"3aciveiymt\",\"contentId\":\"builtin_single-choice-PYDUM5\",\"invalidContentId\":\"builtin_text-yYhm0T\",\"keywords\":{\"sign_in\":[\"sign_in\",\"Sign in to see my recent orders\"],\"live_chat\":[\"live_chat\",\"Chat with Customer Service\"],\"back\":[\"back\",\"Go back to the main menu\"]},\"config\":{\"nbMaxRetries\":1,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-3aciveiymt'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "325133"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"3aciveiymt\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-3aciveiymt']) > Number(1)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "772324"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-yYhm0T {}",
+        "say #!builtin_single-choice-PYDUM5 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "621378"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "qxxntvjuod",
+    "contentId": "builtin_single-choice-Xgfnl3",
+    "invalidContentId": "builtin_text-g-bbyG",
+    "keywords": {
+      "order_id": [
+        "order_id",
+        "Try again with a different Order Number"
+      ],
+      "recent_orders": [
+        "recent_orders",
+        "View the details of my recent orders"
+      ],
+      "main": [
+        "main",
+        "Go back to the main menu"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 1,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-Xgfnl3 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "307259"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"qxxntvjuod\",\"contentId\":\"builtin_single-choice-Xgfnl3\",\"invalidContentId\":\"builtin_text-g-bbyG\",\"keywords\":{\"order_id\":[\"order_id\",\"Try again with a different Order Number\"],\"recent_orders\":[\"recent_orders\",\"View the details of my recent orders\"],\"main\":[\"main\",\"Go back to the main menu\"]},\"config\":{\"nbMaxRetries\":1,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-qxxntvjuod'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "879133"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"qxxntvjuod\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-qxxntvjuod']) > Number(1)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "840489"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-g-bbyG {}",
+        "say #!builtin_single-choice-Xgfnl3 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "592175"
+    }
+  ]
+}

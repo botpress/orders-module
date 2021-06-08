@@ -1,0 +1,62 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "67a1daed5d",
+      "name": "entry",
+      "onEnter": [],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "talk_to_customer_service"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "skill-377e20",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "talk_to_customer_service",
+      "flow": "skills/choice-377e20.flow.json",
+      "next": [
+        {
+          "caption": "User picked [yes]",
+          "condition": "temp['skill-choice-ret-cogl0dny36'] == \"yes\"",
+          "node": "yes_customer_service"
+        },
+        {
+          "caption": "User picked [no]",
+          "condition": "temp['skill-choice-ret-cogl0dny36'] == \"no\"",
+          "node": "main.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "1afdbcd21e",
+      "name": "yes_customer_service",
+      "next": [
+        {
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-GwNBo1"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

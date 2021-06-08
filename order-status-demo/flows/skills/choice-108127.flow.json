@@ -1,0 +1,103 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "fe04gp9g0b",
+    "contentId": "builtin_single-choice-kaDozQ",
+    "invalidContentId": "builtin_text-OuPZmu",
+    "keywords": {
+      "Make a return": [
+        "Make a return",
+        "Faire un retour"
+      ],
+      "Get a Return Label": [
+        "Get a Return Label",
+        "Obtenir une étiquette de retour"
+      ],
+      "What items can I return?": [
+        "What items can I return?",
+        "Quels items puis-je retourner?"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 3,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-kaDozQ {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "273270"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"fe04gp9g0b\",\"contentId\":\"builtin_single-choice-kaDozQ\",\"invalidContentId\":\"builtin_text-OuPZmu\",\"keywords\":{\"Make a return\":[\"Make a return\",\"Faire un retour\"],\"Get a Return Label\":[\"Get a Return Label\",\"Obtenir une étiquette de retour\"],\"What items can I return?\":[\"What items can I return?\",\"Quels items puis-je retourner?\"]},\"config\":{\"nbMaxRetries\":3,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-fe04gp9g0b'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "173547"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"fe04gp9g0b\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-fe04gp9g0b']) > Number(3)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "062599"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-OuPZmu {}",
+        "say #!builtin_single-choice-kaDozQ {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "599243"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "ww1yxuyxag_i_don_t_have_my_order_number",
+  "data": {
+    "action": "text",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "You can find your order number in the confirmation email that was send when your purchase was completed."
+      ],
+      "fr": [
+        "Vous pouvez retrouver votre numéro de commande dans le courriel de confirmation qui vous a été enovyé suite à la complétion de votre commande en ligne."
+      ]
+    },
+    "questions": {
+      "en": [
+        "I don't have my order number",
+        "I can't find my order number",
+        "I don't have it",
+        "Where do I find my order number",
+        "Where is it"
+      ],
+      "fr": [
+        "Je n'ai pas mon numéro de commande",
+        "Je ne suis pas capable de trouver mon numéro de commande",
+        "Où est-ce que je trouve le numéro",
+        "Je ne suis pas capable de le trouver"
+      ]
+    },
+    "redirectFlow": "",
+    "redirectNode": ""
+  }
+}

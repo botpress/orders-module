@@ -1,0 +1,16 @@
+{
+  "name": "__qna__sjmcjieuff_why_hasn_t_my_order_shipped",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "Why hasn't my order shipped",
+      "My order has not shipped yet",
+      "Why did you send out my package",
+      "My order isn't out for delivery yet",
+      "When will you ship my order"
+    ]
+  },
+  "slots": []
+}

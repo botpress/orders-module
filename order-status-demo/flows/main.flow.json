@@ -1,0 +1,202 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "onReceive": [],
+    "next": []
+  },
+  "startNode": "entry",
+  "nodes": [
+    {
+      "id": "skill-c141bd",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "user_type",
+      "flow": "skills/choice-c141bd.flow.json",
+      "next": [
+        {
+          "caption": "User picked [authent...]",
+          "condition": "temp['skill-choice-ret-iecy9pp3ge'] == \"authenticated\"",
+          "node": "Authenticated_greet"
+        },
+        {
+          "caption": "User picked [anonymo...]",
+          "condition": "temp['skill-choice-ret-iecy9pp3ge'] == \"anonymous\"",
+          "node": "Anonymous_greet"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "309eece7eb",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "event.state.session.greeted",
+          "node": "Main_menu"
+        },
+        {
+          "condition": "true",
+          "node": "store_greeting"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "3b2ff88cc6",
+      "name": "store_greeting",
+      "next": [
+        {
+          "condition": "true",
+          "node": "user_type"
+        }
+      ],
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"session\",\"name\":\"greeted\",\"value\":\"true\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "ba02c027c9",
+      "name": "Authenticated_greet",
+      "next": [
+        {
+          "condition": "true",
+          "node": "check-name"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-zYkxzb",
+        "builtin/setVariable {\"type\":\"session\",\"name\":\"userType\",\"value\":\"auth\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "27c34fb589",
+      "name": "listen_intents",
+      "next": [
+        {
+          "condition": "event.nlu.intent.name === 'goal_track_order'",
+          "node": "order_status.flow.json"
+        },
+        {
+          "condition": "true",
+          "node": "did_not_understand"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "9b976b1119",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "Main_menu",
+      "flow": "skills/choice-babf8b.flow.json",
+      "next": [
+        {
+          "caption": "User picked [returns]",
+          "condition": "temp['skill-choice-ret-chs8jl950h'] == \"returns\"",
+          "node": "return.flow.json"
+        },
+        {
+          "caption": "User picked [order_s...]",
+          "condition": "temp['skill-choice-ret-chs8jl950h'] == \"order_status\"",
+          "node": "order_status.flow.json"
+        },
+        {
+          "caption": "User picked [rewards]",
+          "condition": "temp['skill-choice-ret-chs8jl950h'] == \"rewards\"",
+          "node": "real_rewards.flow.json"
+        },
+        {
+          "caption": "User picked [place_o...]",
+          "condition": "temp['skill-choice-ret-chs8jl950h'] == \"place_order\"",
+          "node": "place_order.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "listen_intents"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "bb074c2ae9",
+      "name": "Anonymous_greet",
+      "next": [
+        {
+          "condition": "true",
+          "node": "Main_menu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-exiXUO",
+        "builtin/setVariable {\"type\":\"session\",\"name\":\"userType\",\"value\":\"anon\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "0715d4ab68",
+      "name": "did_not_understand",
+      "next": [
+        {
+          "condition": "true",
+          "node": "Main_menu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-NlMu07"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "88be9de34c",
+      "name": "prompt-email",
+      "next": [
+        {
+          "condition": "true",
+          "node": "Main_menu"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-D5GPuU"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"user\",\"name\":\"email\",\"value\":\"{{event.preview}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "9bfe62bcfa",
+      "name": "check-name",
+      "next": [
+        {
+          "condition": "user.email   !== undefined",
+          "node": "Main_menu"
+        },
+        {
+          "condition": "true",
+          "node": "prompt-email"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gspldrlymh_i_would_like_to_make_a_return",
+  "data": {
+    "action": "text",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "#!builtin_text-cheEJI"
+      ]
+    },
+    "questions": {
+      "en": [
+        "I would like to make a return",
+        "I want to return my order",
+        "I want to return my pants",
+        "How can I do returns",
+        "I want to send back my order",
+        "I don't want my order anymore",
+        "I want to return my items",
+        "Make a return"
+      ]
+    },
+    "redirectFlow": "",
+    "redirectNode": ""
+  }
+}

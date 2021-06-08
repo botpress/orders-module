@@ -1,0 +1,58 @@
+{
+  "name": "goal_track_order",
+  "utterances": {
+    "en": [
+      "How do I track my order?",
+      "Where is my order [01928374658](order_number)",
+      "track order [2435091827](order_number)",
+      "Status of [1928309485](order_number)",
+      "Where is my order",
+      "I did not receive my order",
+      "When will my package arrive",
+      "When do I get my shipment",
+      "My purchase has not arrived yet",
+      "When will I get my stuff",
+      "My order has not been delivered",
+      "Where is my delivery",
+      "Whats the status on order number [7583914839](order_number)",
+      "I want to track my order, can you help me",
+      "Need to know the status of my purchase",
+      "[1234567891](order_number) status",
+      "I need help to track my order"
+    ],
+    "fr": [
+      "Comment puise-je suivre ma commande?",
+      "Où est ma commande [1234567890](order_number)",
+      "[8293019736](order_number)",
+      "Où est ma commande",
+      "Je n'ai pas recu ma commande",
+      "quand est-ce que ma commande va arriver",
+      "Je recois quand ma livraison",
+      "mon achat n'est pas encore arrivé",
+      "Je vais les recevoir quand mes affaires",
+      "Où elle est ma livraison",
+      "C'est quoi l'état de ma commande"
+    ]
+  },
+  "slots": [
+    {
+      "id": "7uzltUUwQuYkeCtp4R39E",
+      "name": "order_number",
+      "entities": [
+        "order_number"
+      ],
+      "color": 1
+    },
+    {
+      "id": "vNV5JqdluLAPNBcFle11e",
+      "name": "email",
+      "entities": [
+        "email"
+      ],
+      "color": 3
+    }
+  ],
+  "contexts": [
+    "global"
+  ]
+}

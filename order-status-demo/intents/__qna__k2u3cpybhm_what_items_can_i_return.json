@@ -1,0 +1,18 @@
+{
+  "name": "__qna__k2u3cpybhm_what_items_can_i_return",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "What items can I return",
+      "Can I return clearance items?",
+      "Do you accept returns on items that were on sale?",
+      "Can I return my swimsuit",
+      "Do you take back underwear?",
+      "What can I return"
+    ],
+    "fr": []
+  },
+  "slots": []
+}

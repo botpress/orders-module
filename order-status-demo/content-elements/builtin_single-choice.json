@@ -1,0 +1,395 @@
+[
+  {
+    "id": "builtin_single-choice-qv0UC7",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Returns + Exchanges",
+          "value": "return"
+        },
+        {
+          "title": "Cancel or Edit an Order",
+          "value": "cancelEdit"
+        },
+        {
+          "title": "Order Status",
+          "value": "status"
+        },
+        {
+          "title": "Something else",
+          "value": "somethingElse"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "#Drop: Are you looking for something in here?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-07-17T15:53:08.742Z",
+    "modifiedOn": "2020-08-17T17:36:42.599Z"
+  },
+  {
+    "id": "builtin_single-choice-kaDozQ",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Make a return",
+          "value": "Make a return"
+        },
+        {
+          "title": "Get a Return Label",
+          "value": "Get a Return Label"
+        },
+        {
+          "title": "What items can I return",
+          "value": "What items can I return?"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "#Drop: Returns + Exchanges",
+      "choices$fr": [
+        {
+          "title": "Faire un retour",
+          "value": "Make a return"
+        },
+        {
+          "title": "Obtenir une étiquette de retour",
+          "value": "Get a Return Label"
+        },
+        {
+          "title": "Quels items puis-je retourner?",
+          "value": "What items can I return?"
+        }
+      ],
+      "markdown$fr": true,
+      "typing$fr": true,
+      "text$fr": "Retours et échanges"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-07-17T15:57:23.938Z",
+    "modifiedOn": "2020-08-17T17:36:10.922Z"
+  },
+  {
+    "id": "builtin_single-choice-fvX6hZ",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Is the **battery** dead?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-08-17T17:22:59.715Z",
+    "modifiedOn": "2020-08-17T17:41:47.469Z"
+  },
+  {
+    "id": "builtin_single-choice-J2VzUX",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Is the **LED** double blinking in **amber**?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-08-17T17:24:14.925Z",
+    "modifiedOn": "2020-08-17T17:42:17.190Z"
+  },
+  {
+    "id": "builtin_single-choice--fn75-",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Is the **LED** blinking **blue** very slowly?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-08-17T17:27:45.118Z",
+    "modifiedOn": "2020-08-17T17:42:08.746Z"
+  },
+  {
+    "id": "builtin_single-choice-xg4YZD",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "Was this helpful?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-08-17T17:29:47.933Z",
+    "modifiedOn": "2020-08-17T17:29:47.933Z"
+  },
+  {
+    "id": "builtin_single-choice-90hk63",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Authenticated User",
+          "value": "authenticated"
+        },
+        {
+          "title": "Anonymous User",
+          "value": "anonymous"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "Please choose the type of user you are "
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-04T14:55:02.046Z",
+    "modifiedOn": "2021-03-05T19:08:37.336Z"
+  },
+  {
+    "id": "builtin_single-choice-wSVJzP",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Order Status",
+          "value": "status"
+        },
+        {
+          "title": "FAQ Answers",
+          "value": "faq"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "Hi {{user.nickname}} how may I help you today?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-04T16:03:30.354Z",
+    "modifiedOn": "2021-03-04T16:04:15.975Z"
+  },
+  {
+    "id": "builtin_single-choice-jvGzXO",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Try again with a different Order Number",
+          "value": "order_id"
+        },
+        {
+          "title": "View the details of my recent orders",
+          "value": "three_recent_orders"
+        },
+        {
+          "title": "Go back to the main menu",
+          "value": "main"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "I'm sorry, that is not a valid Order Number. How would you like to continue?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-04T17:01:08.868Z",
+    "modifiedOn": "2021-03-09T15:10:48.999Z"
+  },
+  {
+    "id": "builtin_single-choice-f80Ppc",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Try again with a different Order Number",
+          "value": "order_id"
+        },
+        {
+          "title": "Sign in to see my recent orders",
+          "value": "sign_in"
+        },
+        {
+          "title": "Chat with Customer Service",
+          "value": "human"
+        },
+        {
+          "title": "Go back to the main menu",
+          "value": "main"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "How would you like to proceed?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-07T23:18:21.760Z",
+    "modifiedOn": "2021-03-09T23:13:16.724Z"
+  },
+  {
+    "id": "builtin_single-choice-UY6bQQ",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Returns + Exchanges",
+          "value": "returns"
+        },
+        {
+          "title": "Order Status and Shipping",
+          "value": "order_status"
+        },
+        {
+          "title": "Real Rewards",
+          "value": "rewards"
+        },
+        {
+          "title": "Place Order",
+          "value": "place_order"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "How can I help you today?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-08T17:50:53.854Z",
+    "modifiedOn": "2021-06-06T12:22:08.834Z"
+  },
+  {
+    "id": "builtin_single-choice-ojERbW",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Yes",
+          "value": "yes"
+        },
+        {
+          "title": "No",
+          "value": "no"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "It seems I am not able to help you. Would you like to chat with Customer Service?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-08T22:08:54.314Z",
+    "modifiedOn": "2021-03-08T22:08:54.314Z"
+  },
+  {
+    "id": "builtin_single-choice-Xgfnl3",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Try again with a different Order Number",
+          "value": "order_id"
+        },
+        {
+          "title": "View the details of my recent orders",
+          "value": "recent_orders"
+        },
+        {
+          "title": "Go back to the main menu",
+          "value": "main"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": false,
+      "typing$en": true,
+      "text$en": "How would you like to continue?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-09T16:26:26.869Z",
+    "modifiedOn": "2021-03-09T23:13:05.572Z"
+  },
+  {
+    "id": "builtin_single-choice-PYDUM5",
+    "formData": {
+      "choices$en": [
+        {
+          "title": "Sign in to see my recent orders",
+          "value": "sign_in"
+        },
+        {
+          "title": "Chat with Customer Service",
+          "value": "live_chat"
+        },
+        {
+          "title": "Go back to the main menu",
+          "value": "back"
+        }
+      ],
+      "markdown$en": true,
+      "typing$en": true,
+      "text$en": "That doesn’t seem right. How would you like to continue?"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-03-09T23:01:40.963Z",
+    "modifiedOn": "2021-03-09T23:01:40.963Z"
+  },
+  {
+    "id": "builtin_single-choice-FmSyZs",
+    "formData": {
+      "dropdownPlaceholder$en": "Select...",
+      "choices$en": [
+        {
+          "title": "Bike",
+          "value": "bike"
+        },
+        {
+          "title": "Skates",
+          "value": "skates"
+        },
+        {
+          "title": "Snowboard",
+          "value": "snowboard"
+        }
+      ],
+      "markdown$en": true,
+      "disableFreeText$en": true,
+      "typing$en": true,
+      "text$en": "Choose an item",
+      "isDropdown$en": true
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-06-06T12:39:59.750Z",
+    "modifiedOn": "2021-06-06T12:39:59.750Z"
+  }
+]

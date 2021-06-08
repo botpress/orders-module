@@ -1,0 +1,78 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "checkEmail",
+  "description": "",
+  "nodes": [
+    {
+      "id": "4cc5ab5e79",
+      "name": "orderPlaced",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-NOEj55",
+        "say #!orders_order-card-aMp3tn",
+        "say #!builtin_text-4Zc6YZ"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "79db54e96c",
+      "name": "checkEmail",
+      "next": [
+        {
+          "condition": "user.email !== undefined",
+          "node": "CreateOrder-e888cf"
+        },
+        {
+          "condition": "true",
+          "node": "return"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "eddedf73bc",
+      "name": "return",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json#user_type"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-EK1iti"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-e888cf",
+      "type": "skill-call",
+      "skill": "CreateOrder",
+      "name": "CreateOrder-e888cf",
+      "flow": "skills/CreateOrder-e888cf.flow.json",
+      "next": [
+        {
+          "caption": "On success",
+          "condition": "temp.success",
+          "node": "orderPlaced"
+        },
+        {
+          "caption": "On failure",
+          "condition": "!temp.success",
+          "node": ""
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    }
+  ]
+}

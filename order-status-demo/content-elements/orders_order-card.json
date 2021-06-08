@@ -1,0 +1,14 @@
+[
+  {
+    "id": "orders_order-card-aMp3tn",
+    "formData": {
+      "typing$en": true,
+      "orderId$en": "{{event.state.temp.createdOrder.orderId}}",
+      "item$en": "{{event.state.temp.createdOrder.item}}",
+      "qty$en": "{{event.state.temp.createdOrder.qty}}"
+    },
+    "createdBy": "admin",
+    "createdOn": "2021-06-06T13:51:48.908Z",
+    "modifiedOn": "2021-06-06T13:51:48.908Z"
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "iecy9pp3ge",
+    "contentId": "builtin_single-choice-90hk63",
+    "invalidContentId": "builtin_text-6urSLO",
+    "keywords": {
+      "authenticated": [
+        "authenticated",
+        "Authenticated User"
+      ],
+      "anonymous": [
+        "anonymous",
+        "Anonymous User"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 1,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-90hk63 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "713073"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"iecy9pp3ge\",\"contentId\":\"builtin_single-choice-90hk63\",\"invalidContentId\":\"builtin_text-6urSLO\",\"keywords\":{\"authenticated\":[\"authenticated\",\"Authenticated User\"],\"anonymous\":[\"anonymous\",\"Anonymous User\"]},\"config\":{\"nbMaxRetries\":1,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-iecy9pp3ge'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "479858"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"iecy9pp3ge\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-iecy9pp3ge']) > Number(1)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "681440"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-6urSLO {}",
+        "say #!builtin_single-choice-90hk63 {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "462032"
+    }
+  ]
+}

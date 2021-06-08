@@ -1,0 +1,112 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "check-if-extracted",
+  "skillData": {
+    "retryAttempts": 1,
+    "contentElement": "builtin_text-ZjdBKr",
+    "notFoundElement": "builtin_text-OCXp_M",
+    "turnExpiry": -1,
+    "intent": "goal_track_order",
+    "slotName": "email",
+    "entities": [
+      "email"
+    ]
+  },
+  "nodes": [
+    {
+      "name": "slot-extract",
+      "onEnter": [
+        "say #!builtin_text-ZjdBKr {}"
+      ],
+      "onReceive": [
+        "basic-skills/slot_fill {\"slotName\":\"email\",\"entities\":\"email\", \"turnExpiry\":-1}"
+      ],
+      "next": [
+        {
+          "condition": "session.slots['email'] && (temp.valid === undefined || temp.valid == \"true\")",
+          "node": "extracted"
+        },
+        {
+          "condition": "true",
+          "node": "not-extracted"
+        }
+      ],
+      "id": "809168"
+    },
+    {
+      "name": "extracted",
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"extracted\",\"value\":\"true\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "636497"
+    },
+    {
+      "name": "not-extracted",
+      "onEnter": [
+        "basic-skills/slot_not_found {\"retryAttempts\":\"1\"}",
+        "say #!builtin_text-OCXp_M {}"
+      ],
+      "onReceive": [
+        "basic-skills/slot_fill {\"slotName\":\"email\",\"entities\":\"email\", \"turnExpiry\":-1}"
+      ],
+      "next": [
+        {
+          "condition": "session.slots['email'] && (temp.valid === undefined || temp.valid == \"true\")",
+          "node": "extracted"
+        },
+        {
+          "condition": "temp.notExtracted == \"true\"",
+          "node": "#"
+        },
+        {
+          "condition": "session.slots.notFound > 0",
+          "node": ""
+        },
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "492507"
+    },
+    {
+      "name": "check-if-extracted",
+      "onEnter": [
+        "basic-skills/slot_update_contexts {\"intentName\":\"goal_track_order\"}"
+      ],
+      "next": [
+        {
+          "condition": "session.slots['email'] !== undefined",
+          "node": "already-extracted"
+        },
+        {
+          "condition": "true",
+          "node": "slot-extract"
+        }
+      ],
+      "id": "416330"
+    },
+    {
+      "name": "already-extracted",
+      "onEnter": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"alreadyExtracted\",\"value\":\"true\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "649596"
+    }
+  ]
+}

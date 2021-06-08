@@ -1,0 +1,28 @@
+{
+  "id": "jiwaniux2n_i_want_to_talk_to_someone",
+  "data": {
+    "action": "text_redirect",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "Of course"
+      ]
+    },
+    "questions": {
+      "en": [
+        "I want to talk to someone",
+        "Transfer me to somebody",
+        "I want to chat with a human",
+        "Send me to an agent",
+        "Can I talk to a real person",
+        "I do not want to talk to you",
+        "I don't want to chat with a computer"
+      ]
+    },
+    "redirectFlow": "authenticated.flow.json",
+    "redirectNode": "customer_choice"
+  }
+}

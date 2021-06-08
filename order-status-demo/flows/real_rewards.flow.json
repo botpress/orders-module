@@ -1,0 +1,57 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "c5a53cd655",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-nB4RHA",
+        "builtin/wait {\"delay\":\"2000\"}",
+        "say #!builtin_text-RJhFCl"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "node-4354"
+        }
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "754d3f966d",
+      "name": "node-4354",
+      "next": [
+        {
+          "condition": "event.state.session.flowa",
+          "node": "node-7ce5"
+        },
+        {
+          "condition": "true",
+          "node": "reusable/flowa.flow.json"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "4b82f16736",
+      "name": "node-7ce5",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-uNNx07"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

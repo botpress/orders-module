@@ -1,0 +1,22 @@
+{
+  "name": "__qna__ww1yxuyxag_i_don_t_have_my_order_number",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "I don't have my order number",
+      "I can't find my order number",
+      "I don't have it",
+      "Where do I find my order number",
+      "Where is it"
+    ],
+    "fr": [
+      "Je n'ai pas mon numéro de commande",
+      "Je ne suis pas capable de trouver mon numéro de commande",
+      "Où est-ce que je trouve le numéro",
+      "Je ne suis pas capable de le trouver"
+    ]
+  },
+  "slots": []
+}

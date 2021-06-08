@@ -1,0 +1,107 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "81vaaa21og",
+    "contentId": "builtin_single-choice-f80Ppc",
+    "invalidContentId": "builtin_text-yYhm0T",
+    "keywords": {
+      "order_id": [
+        "order_id",
+        "Try again with a 10 digit valid Order Number"
+      ],
+      "sign_in": [
+        "sign_in",
+        "Sign in to see my recent orders"
+      ],
+      "human": [
+        "human",
+        "Talk to a human"
+      ],
+      "main": [
+        "main",
+        "Go back to main "
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 1,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-f80Ppc {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "924777"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"81vaaa21og\",\"contentId\":\"builtin_single-choice-f80Ppc\",\"invalidContentId\":\"builtin_text-yYhm0T\",\"keywords\":{\"order_id\":[\"order_id\",\"Try again with a 10 digit valid Order Number\"],\"sign_in\":[\"sign_in\",\"Sign in to see my recent orders\"],\"human\":[\"human\",\"Talk to a human\"],\"main\":[\"main\",\"Go back to main \"]},\"config\":{\"nbMaxRetries\":1,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-81vaaa21og'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "300895"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"81vaaa21og\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-81vaaa21og']) > Number(1)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "401777"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-yYhm0T {}",
+        "say #!builtin_single-choice-f80Ppc {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "173804"
+    }
+  ]
+}

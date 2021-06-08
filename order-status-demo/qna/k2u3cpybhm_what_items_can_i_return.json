@@ -1,0 +1,28 @@
+{
+  "id": "k2u3cpybhm_what_items_can_i_return",
+  "data": {
+    "action": "text",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "#!builtin_text-XZ09qB"
+      ]
+    },
+    "questions": {
+      "en": [
+        "What items can I return",
+        "Can I return clearance items?",
+        "Do you accept returns on items that were on sale?",
+        "Can I return my swimsuit",
+        "Do you take back underwear?",
+        "What can I return"
+      ],
+      "fr": []
+    },
+    "redirectFlow": "",
+    "redirectNode": ""
+  }
+}

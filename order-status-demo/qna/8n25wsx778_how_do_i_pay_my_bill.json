@@ -1,0 +1,24 @@
+{
+  "id": "8n25wsx778_how_do_i_pay_my_bill",
+  "data": {
+    "action": "text",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "Please call 123-123-1234 to make payment arrangements."
+      ],
+      "fr": []
+    },
+    "questions": {
+      "en": [
+        "How do I pay my bill?"
+      ],
+      "fr": []
+    },
+    "redirectFlow": "",
+    "redirectNode": ""
+  }
+}

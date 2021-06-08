@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "de7f8e5a5f",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-dUqP0L",
+        "say #!builtin_text-cheEJI",
+        "builtin/wait {\"delay\":\"2000\"}"
+      ],
+      "onReceive": null,
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "type": "standard"
+    }
+  ]
+}

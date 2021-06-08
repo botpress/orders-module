@@ -1,0 +1,13 @@
+{
+  "name": "__qna__8n25wsx778_how_do_i_pay_my_bill",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "How do I pay my bill?"
+    ],
+    "fr": []
+  },
+  "slots": []
+}

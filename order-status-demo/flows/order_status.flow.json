@@ -1,0 +1,350 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "description": "",
+  "nodes": [
+    {
+      "id": "f690d49d0a",
+      "type": "skill-call",
+      "skill": "Slot",
+      "name": "Slot-email",
+      "flow": "skills/Slot-e41b85.flow.json",
+      "next": [
+        {
+          "caption": "On extracted",
+          "condition": "temp.extracted == \"true\"",
+          "node": "check_status_auth"
+        },
+        {
+          "caption": "On not found",
+          "condition": "temp.notExtracted == \"true\"",
+          "node": "choice-invalid_email"
+        },
+        {
+          "caption": "On already extracted",
+          "condition": "temp.alreadyExtracted == \"true\"",
+          "node": "check_status_auth"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "e2ecae0432",
+      "name": "entry",
+      "next": [
+        {
+          "condition": "session.slots.order_number.value",
+          "node": "user_type-copy"
+        },
+        {
+          "condition": "true",
+          "node": "ask_order_nr"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-WzjeZ0"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "e9d9dcf4df",
+      "name": "user_type",
+      "next": [
+        {
+          "condition": "session.userType == 'auth'",
+          "node": "Invalid_order_nr_auth"
+        },
+        {
+          "condition": "session.userType == 'anon'",
+          "node": "Invalid_order_id_anon"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "66c640ca0d",
+      "name": "show_recent_orders",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-80rTC1",
+        "fetch_recent_orders {}",
+        "builtin/wait {\"delay\":\"2000\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "a5aa2de828",
+      "name": "sign_in_component",
+      "next": [
+        {
+          "condition": "true",
+          "node": "show_recent_orders"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-1C8eh8"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "054a4ac819",
+      "name": "ask_order_nr",
+      "next": [
+        {
+          "condition": "true",
+          "node": "validate_order_nr"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-NzKUiG"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"oid\",\"value\":\"{{event.payload.text}}\"}"
+      ],
+      "type": "standard"
+    },
+    {
+      "id": "9dd41c0d68",
+      "name": "validate_order_nr",
+      "next": [
+        {
+          "condition": "temp.oidValid   === false",
+          "node": "invalid_order_nr"
+        },
+        {
+          "condition": "true",
+          "node": "user_type-copy"
+        }
+      ],
+      "onEnter": [
+        "validate_order_id {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "10cb41ce3a",
+      "name": "check_status_auth",
+      "next": [
+        {
+          "condition": "temp.order      !== undefined",
+          "node": "display_order_status"
+        },
+        {
+          "condition": "true",
+          "node": "no_results"
+        }
+      ],
+      "onEnter": [
+        "fetch_single_order {}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "43fe35611d",
+      "name": "display_order_status",
+      "next": [
+        {
+          "condition": "true",
+          "node": "main.flow.json"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-37dQoo",
+        "builtin/wait {\"delay\":\"2000\"}"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "19cc09fb32",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "Invalid_order_nr_auth",
+      "flow": "skills/choice-d0a39c.flow.json",
+      "next": [
+        {
+          "caption": "User picked [order_id]",
+          "condition": "temp['skill-choice-ret-qxxntvjuod'] == \"order_id\"",
+          "node": "ask_order_nr"
+        },
+        {
+          "caption": "User picked [recent_...]",
+          "condition": "temp['skill-choice-ret-qxxntvjuod'] == \"recent_orders\"",
+          "node": "show_recent_orders"
+        },
+        {
+          "caption": "User picked [main]",
+          "condition": "temp['skill-choice-ret-qxxntvjuod'] == \"main\"",
+          "node": "main.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "live_chat.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "9d12c8daa8",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "Invalid_order_id_anon",
+      "flow": "skills/choice-b15573.flow.json",
+      "next": [
+        {
+          "caption": "User picked [order_id]",
+          "condition": "temp['skill-choice-ret-81vaaa21og'] == \"order_id\"",
+          "node": "ask_order_nr"
+        },
+        {
+          "caption": "User picked [sign_in]",
+          "condition": "temp['skill-choice-ret-81vaaa21og'] == \"sign_in\"",
+          "node": "sign_in_component"
+        },
+        {
+          "caption": "User picked [human]",
+          "condition": "temp['skill-choice-ret-81vaaa21og'] == \"human\"",
+          "node": "live_chat.flow.json"
+        },
+        {
+          "caption": "User picked [main]",
+          "condition": "temp['skill-choice-ret-81vaaa21og'] == \"main\"",
+          "node": "main.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "live_chat.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "1a4e8ff794",
+      "name": "user_type-copy",
+      "next": [
+        {
+          "condition": "session.userType == 'auth'",
+          "node": "check_status_auth"
+        },
+        {
+          "condition": "session.userType == 'anon'",
+          "node": "Slot-email"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "skill-32dc94",
+      "type": "skill-call",
+      "skill": "choice",
+      "name": "choice-invalid_email",
+      "flow": "skills/choice-32dc94.flow.json",
+      "next": [
+        {
+          "caption": "User picked [sign_in]",
+          "condition": "temp['skill-choice-ret-3aciveiymt'] == \"sign_in\"",
+          "node": "sign_in_component"
+        },
+        {
+          "caption": "User picked [live_ch...]",
+          "condition": "temp['skill-choice-ret-3aciveiymt'] == \"live_chat\"",
+          "node": "live_chat.flow.json"
+        },
+        {
+          "caption": "User picked [back]",
+          "condition": "temp['skill-choice-ret-3aciveiymt'] == \"back\"",
+          "node": "main.flow.json"
+        },
+        {
+          "caption": "On failure",
+          "condition": "true",
+          "node": "live_chat.flow.json"
+        }
+      ],
+      "onEnter": null,
+      "onReceive": null
+    },
+    {
+      "id": "866c7114e9",
+      "name": "user_type-copy-copy",
+      "next": [
+        {
+          "condition": "session.userType == 'anon'",
+          "node": "Invalid_order_id_anon"
+        },
+        {
+          "condition": "session.userType == 'auth'",
+          "node": "node-aa84"
+        }
+      ],
+      "onEnter": [],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "4cba2e2f92",
+      "name": "no_results",
+      "next": [
+        {
+          "condition": "true",
+          "node": "user_type-copy-copy"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-ZYmvvW"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "ebd4a3845e",
+      "name": "node-aa84",
+      "next": [
+        {
+          "condition": "true",
+          "node": "show_recent_orders"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-d4qCab"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    },
+    {
+      "id": "3b1b510cb3",
+      "name": "invalid_order_nr",
+      "next": [
+        {
+          "condition": "true",
+          "node": "user_type"
+        }
+      ],
+      "onEnter": [
+        "say #!builtin_text-0KVuoY"
+      ],
+      "onReceive": null,
+      "type": "standard"
+    }
+  ]
+}

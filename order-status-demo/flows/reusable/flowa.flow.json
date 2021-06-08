@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "catchAll": {},
+  "startNode": "entry",
+  "triggers": [],
+  "description": "",
+  "nodes": [
+    {
+      "id": "e9fac33f36",
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_text-Nx4WY-",
+        "say #!builtin_text-QHxKVG"
+      ],
+      "onReceive": [
+        "say #!builtin_text-jw6tqE",
+        "builtin/setVariable {\"type\":\"session\",\"name\":\"flowa\",\"value\":\"true\"}",
+        "builtin/wait {\"delay\":\"2000\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "type": "standard"
+    }
+  ]
+}

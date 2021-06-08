@@ -1,0 +1,99 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "randomId": "cogl0dny36",
+    "contentId": "builtin_single-choice-ojERbW",
+    "invalidContentId": "builtin_text-g-bbyG",
+    "keywords": {
+      "yes": [
+        "yes",
+        "Yes"
+      ],
+      "no": [
+        "no",
+        "No"
+      ]
+    },
+    "config": {
+      "nbMaxRetries": 1,
+      "repeatChoicesOnInvalid": true
+    }
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-ojERbW {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "931402"
+    },
+    {
+      "name": "parse",
+      "onReceive": [
+        "basic-skills/choice_parse_answer {\"randomId\":\"cogl0dny36\",\"contentId\":\"builtin_single-choice-ojERbW\",\"invalidContentId\":\"builtin_text-g-bbyG\",\"keywords\":{\"yes\":[\"yes\",\"Yes\"],\"no\":[\"no\",\"No\"]},\"config\":{\"nbMaxRetries\":1,\"repeatChoicesOnInvalid\":true}}"
+      ],
+      "next": [
+        {
+          "condition": "temp['skill-choice-valid-cogl0dny36'] === true",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "invalid"
+        }
+      ],
+      "triggers": [
+        {
+          "conditions": [
+            {
+              "id": "always"
+            }
+          ]
+        }
+      ],
+      "onEnter": [],
+      "id": "609655"
+    },
+    {
+      "name": "invalid",
+      "onEnter": [
+        "basic-skills/choice_invalid_answer {\"randomId\":\"cogl0dny36\"}"
+      ],
+      "next": [
+        {
+          "condition": "Number(temp['skill-choice-invalid-count-cogl0dny36']) > Number(1)",
+          "node": "#"
+        },
+        {
+          "condition": "true",
+          "node": "sorry"
+        }
+      ],
+      "id": "300421"
+    },
+    {
+      "name": "sorry",
+      "onEnter": [
+        "say #!builtin_text-g-bbyG {}",
+        "say #!builtin_single-choice-ojERbW {\"skill\":\"choice\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "parse"
+        }
+      ],
+      "id": "354904"
+    }
+  ]
+}

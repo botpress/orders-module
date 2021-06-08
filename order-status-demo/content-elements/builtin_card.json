@@ -1,0 +1,20 @@
+[
+  {
+    "id": "builtin_card-nyOrPm",
+    "formData": {
+      "title$en": "Talk to a Human",
+      "subtitle$en": "Customer Service is here for you!",
+      "actions$en": [
+        {
+          "action": "Postback",
+          "title": "Start Live Chat",
+          "text": "modal-faq/live-chat-button",
+          "payload": "Talk with an agent"
+        }
+      ]
+    },
+    "createdBy": "admin",
+    "createdOn": "2020-07-16T20:03:39.783Z",
+    "modifiedOn": "2020-08-11T17:09:29.663Z"
+  }
+]

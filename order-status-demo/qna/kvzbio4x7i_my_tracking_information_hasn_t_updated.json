@@ -1,0 +1,26 @@
+{
+  "id": "kvzbio4x7i_my_tracking_information_hasn_t_updated",
+  "data": {
+    "action": "text",
+    "contexts": [
+      "global"
+    ],
+    "enabled": true,
+    "answers": {
+      "en": [
+        "If your order has shipped, please allow the estimated shipping time date for your order to arrive. If your order has shipped and you have not received it within the estimated shipping time, please chat with an agent."
+      ]
+    },
+    "questions": {
+      "en": [
+        "My tracking information hasn't updated",
+        "My tracking info isn't up to date",
+        "Why isn't my tracking information up to date",
+        "When will the tracking info update"
+      ],
+      "fr": []
+    },
+    "redirectFlow": "",
+    "redirectNode": ""
+  }
+}

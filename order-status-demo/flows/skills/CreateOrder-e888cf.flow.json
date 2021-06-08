@@ -1,0 +1,76 @@
+{
+  "version": "0.0.1",
+  "catchAll": {
+    "next": []
+  },
+  "startNode": "entry",
+  "skillData": {
+    "itemContentId": "builtin_single-choice-FmSyZs",
+    "qtyContentId": "builtin_text-sGmZNH"
+  },
+  "nodes": [
+    {
+      "name": "entry",
+      "onEnter": [
+        "say #!builtin_single-choice-FmSyZs {}"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"item\",\"value\":\"{{event.preview}}\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "promptQty"
+        }
+      ],
+      "id": "209642"
+    },
+    {
+      "name": "promptQty",
+      "onEnter": [
+        "say #!builtin_text-sGmZNH {}"
+      ],
+      "onReceive": [
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"qty\",\"value\":\"{{event.preview}}\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "validateQty"
+        }
+      ],
+      "id": "269409"
+    },
+    {
+      "name": "validateQty",
+      "onEnter": [
+        "orders/validateQty"
+      ],
+      "next": [
+        {
+          "condition": "temp.qtyValid === false",
+          "node": "promptQty"
+        },
+        {
+          "condition": "true",
+          "node": "createOrder"
+        }
+      ],
+      "id": "839287"
+    },
+    {
+      "name": "createOrder",
+      "onEnter": [
+        "orders/createOrder {\"item\":\"{{event.state.temp.item}}\",\"qty\":\"{{event.state.temp.qty}}\",\"customer\":\"{{event.state.user.email}}\"}",
+        "builtin/setVariable {\"type\":\"temp\",\"name\":\"success\",\"value\":\"true\"}"
+      ],
+      "next": [
+        {
+          "condition": "true",
+          "node": "#"
+        }
+      ],
+      "id": "249644"
+    }
+  ]
+}

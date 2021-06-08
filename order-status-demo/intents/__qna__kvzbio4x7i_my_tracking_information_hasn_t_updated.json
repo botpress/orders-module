@@ -1,0 +1,16 @@
+{
+  "name": "__qna__kvzbio4x7i_my_tracking_information_hasn_t_updated",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "My tracking information hasn't updated",
+      "My tracking info isn't up to date",
+      "Why isn't my tracking information up to date",
+      "When will the tracking info update"
+    ],
+    "fr": []
+  },
+  "slots": []
+}

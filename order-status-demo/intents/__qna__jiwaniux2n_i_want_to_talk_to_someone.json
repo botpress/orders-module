@@ -1,0 +1,18 @@
+{
+  "name": "__qna__jiwaniux2n_i_want_to_talk_to_someone",
+  "contexts": [
+    "global"
+  ],
+  "utterances": {
+    "en": [
+      "I want to talk to someone",
+      "Transfer me to somebody",
+      "I want to chat with a human",
+      "Send me to an agent",
+      "Can I talk to a real person",
+      "I do not want to talk to you",
+      "I don't want to chat with a computer"
+    ]
+  },
+  "slots": []
+}
